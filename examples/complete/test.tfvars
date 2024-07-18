@@ -48,5 +48,3 @@ min_capacity = 1
 max_capacity = 4
 
 auto_scaling_policy_name = "memory-scaling-policy"
-predefined_metric_type   = "ECSServiceAverageMemoryUtilization"
-target_value             = "80"

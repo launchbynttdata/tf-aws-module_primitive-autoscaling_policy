@@ -131,7 +131,8 @@ module "autoscaling_target" {
 }
 
 module "autoscaling_policies" {
-  source = "../.."
+  source     = "../.."
+  depends_on = [module.autoscaling_target]
 
   name                   = var.auto_scaling_policy_name
   scalable_dimension     = "ecs:service:DesiredCount"
