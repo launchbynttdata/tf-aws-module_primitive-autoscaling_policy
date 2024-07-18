@@ -1,11 +1,12 @@
-naming_prefix = "demo"
+logical_product_family  = "terratest"
+logical_product_service = "ecs"
 
 interface_vpc_endpoints = {
-  ecr-dkr = {
+  ecrdkr = {
     service_name        = "ecr.dkr"
     private_dns_enabled = true
   }
-  ecr-api = {
+  ecrapi = {
     service_name        = "ecr.api"
     private_dns_enabled = true
   }

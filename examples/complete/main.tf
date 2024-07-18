@@ -30,7 +30,7 @@ module "vpc" {
 }
 
 module "ecs_platform" {
-  source = "git::https://github.com/nexient-llc/tf-aws-wrapper_module-ecs_appmesh_platform?ref=0.1.0"
+  source = "git::https://github.com/launchbynttdata/tf-aws-module_collection-ecs_appmesh_platform?ref=1.0.0"
 
   vpc_id                  = module.vpc.vpc_id
   private_subnets         = module.vpc.private_subnets
@@ -38,7 +38,8 @@ module "ecs_platform" {
   interface_vpc_endpoints = var.interface_vpc_endpoints
   route_table_ids         = concat([module.vpc.default_route_table_id], module.vpc.private_route_table_ids)
 
-  naming_prefix              = local.naming_prefix
+  logical_product_family     = var.logical_product_family
+  logical_product_service    = var.logical_product_service
   vpce_security_group        = var.vpce_security_group
   region                     = var.region
   environment                = var.environment
@@ -74,7 +75,7 @@ module "sg_ecs_service" {
 }
 
 module "container_definition" {
-  source         = "git::https://github.com/cloudposse/terraform-aws-ecs-container-definition.git?ref=tags/0.59.0"
+  source         = "git::https://github.com/cloudposse/terraform-aws-ecs-container-definition.git?ref=0.58.2"
   container_name = "app"
   # Docker image must already exist in ECR in the same account
   container_image  = var.container_image
@@ -120,7 +121,7 @@ module "ecs_alb_service_task" {
 }
 
 module "autoscaling_target" {
-  source = "git::https://github.com/nexient-llc/tf-aws-module-autoscaling_target?ref=0.1.0"
+  source = "git::https://github.com/launchbynttdata/tf-aws-module_primitive-autoscaling_target?ref=1.0.0"
 
   max_capacity       = var.max_capacity
   min_capacity       = var.min_capacity
