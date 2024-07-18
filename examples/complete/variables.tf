@@ -62,22 +62,26 @@ variable "resource_number" {
 
 variable "region" {
   description = "AWS Region in which the infra needs to be provisioned"
+  type        = string
   default     = "us-east-2"
 }
 
 ### VPC related variables
 
 variable "vpc_cidr" {
+  type    = string
   default = "10.1.0.0/16"
 }
 
 variable "private_subnets" {
   description = "List of private subnet cidrs"
+  type        = list(string)
   default     = ["10.1.1.0/24", "10.1.2.0/24", "10.1.3.0/24"]
 }
 
 variable "availability_zones" {
   description = "List of availability zones for the VPC"
+  type        = list(string)
   default     = ["us-east-2a", "us-east-2b", "us-east-2c"]
 }
 
@@ -154,16 +158,6 @@ variable "min_capacity" {
 variable "max_capacity" {
   description = "Max capacity of the scalable target."
   type        = number
-}
-
-variable "predefined_metric_type" {
-  description = "The metric type. Currently the valid values are ECSServiceAverageCPUUtilization or ECSServiceAverageMemoryUtilization"
-  type        = string
-}
-
-variable "target_value" {
-  description = "Target value for the metric threshold at which the auto-scaling will be triggerred"
-  type        = string
 }
 
 variable "scale_in_cooldown" {
