@@ -66,9 +66,3 @@ variable "scale_out_cooldown" {
   type        = string
   default     = "60"
 }
-
-variable "tags" {
-  description = "An arbitrary map of tags that can be added to all resources."
-  type        = map(string)
-  default     = {}
-}
