@@ -30,7 +30,8 @@ module "vpc" {
 }
 
 module "ecs_platform" {
-  source = "git::https://github.com/launchbynttdata/tf-aws-module_collection-ecs_appmesh_platform?ref=1.0.0"
+  source  = "terraform.registry.launch.nttdata.com/module_collection/ecs_appmesh_platform/aws"
+  version = "~> 1.0"
 
   vpc_id                  = module.vpc.vpc_id
   private_subnets         = module.vpc.private_subnets
@@ -121,7 +122,8 @@ module "ecs_alb_service_task" {
 }
 
 module "autoscaling_target" {
-  source = "git::https://github.com/launchbynttdata/tf-aws-module_primitive-autoscaling_target?ref=1.0.0"
+  source  = "terraform.registry.launch.nttdata.com/module_primitive/autoscaling_target/aws"
+  version = "~> 1.0"
 
   max_capacity       = var.max_capacity
   min_capacity       = var.min_capacity
