@@ -122,19 +122,13 @@ If `make check` target is successful, developer is good to commit the code to pr
 # Know Issues
 Currently, the `encrypt at transit` is not supported in terraform. There is an open issue for this logged with Hashicorp - https://github.com/hashicorp/terraform-provider-aws/pull/26987
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.0 |
-
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.72.1 |
 
 ## Modules
 
@@ -152,18 +146,18 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_name"></a> [name](#input\_name) | Name of the auto scaling policy | `string` | n/a | yes |
 | <a name="input_policy_type"></a> [policy\_type](#input\_policy\_type) | The type of Autoscaling policy. Valid values are TargetTrackingScaling and StepScaling. Default is TargetTrackingScaling | `string` | `"TargetTrackingScaling"` | no |
-| <a name="input_scalable_dimension"></a> [scalable\_dimension](#input\_scalable\_dimension) | Scalable dimension of scalable target. Details to be found at<br>    https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters | `string` | n/a | yes |
-| <a name="input_service_namespace"></a> [service\_namespace](#input\_service\_namespace) | AWS service namespace of the scalable target. Details to be found at<br>    https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters | `string` | n/a | yes |
-| <a name="input_resource_id"></a> [resource\_id](#input\_resource\_id) | Resource type and unique identifier string for the resource associated with the scaling policy. Details found at<br>    https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters | `string` | n/a | yes |
 | <a name="input_predefined_metric_type"></a> [predefined\_metric\_type](#input\_predefined\_metric\_type) | The metric type. Currently the valid values are ECSServiceAverageCPUUtilization or ECSServiceAverageMemoryUtilization | `string` | n/a | yes |
-| <a name="input_target_value"></a> [target\_value](#input\_target\_value) | Target value for the metric threshold at which the auto-scaling will be triggerred | `string` | n/a | yes |
+| <a name="input_resource_id"></a> [resource\_id](#input\_resource\_id) | Resource type and unique identifier string for the resource associated with the scaling policy. Details found at<br/>    https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters | `string` | n/a | yes |
+| <a name="input_scalable_dimension"></a> [scalable\_dimension](#input\_scalable\_dimension) | Scalable dimension of scalable target. Details to be found at<br/>    https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters | `string` | n/a | yes |
 | <a name="input_scale_in_cooldown"></a> [scale\_in\_cooldown](#input\_scale\_in\_cooldown) | Amount of time, in seconds, after a scale in activity completes before another scale in activity can start. | `string` | `"60"` | no |
 | <a name="input_scale_out_cooldown"></a> [scale\_out\_cooldown](#input\_scale\_out\_cooldown) | Amount of time, in seconds, after a scale out activity completes before another scale out activity can start. | `string` | `"60"` | no |
+| <a name="input_service_namespace"></a> [service\_namespace](#input\_service\_namespace) | AWS service namespace of the scalable target. Details to be found at<br/>    https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters | `string` | n/a | yes |
+| <a name="input_target_value"></a> [target\_value](#input\_target\_value) | Target value for the metric threshold at which the auto-scaling will be triggerred | `string` | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_id"></a> [id](#output\_id) | ID of the autoscaling policy |
 | <a name="output_arn"></a> [arn](#output\_arn) | ARN of the autoscaling policy |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+| <a name="output_id"></a> [id](#output\_id) | ID of the autoscaling policy |
+<!-- END_TF_DOCS -->

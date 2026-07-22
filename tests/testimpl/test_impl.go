@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestAutoscalingPolicy(t *testing.T, ctx types.TestContext) {
+func TestComposableAutoscalingPolicy(t *testing.T, ctx types.TestContext) {
 	appAutoscalingClient := applicationautoscaling.NewFromConfig(GetAWSConfig(t))
 	policyArn := terraform.Output(t, ctx.TerratestTerraformOptions(), "autoscaling_policy_arn")
 	serviceId := terraform.Output(t, ctx.TerratestTerraformOptions(), "service_id")

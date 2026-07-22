@@ -22,5 +22,5 @@ func TestAutoscalingPolicyModule(t *testing.T) {
 		SetTestConfigFileName(infraTFVarFileNameDefault).
 		Build()
 
-	lib.RunSetupTestTeardown(t, *ctx, testimpl.TestAutoscalingPolicy)
+	lib.RunSetupTestTeardown(t, *ctx, testimpl.TestComposableAutoscalingPolicy)
 }
