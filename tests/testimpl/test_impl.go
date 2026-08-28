@@ -16,9 +16,9 @@ import (
 
 func TestComposableAutoscalingPolicy(t *testing.T, ctx types.TestContext) {
 	appAutoscalingClient := applicationautoscaling.NewFromConfig(GetAWSConfig(t))
-	policyArn := terraform.Output(t, ctx.TerratestTerraformOptions(), "autoscaling_policy_arn")
-	serviceId := terraform.Output(t, ctx.TerratestTerraformOptions(), "service_id")
-	fargateArn := terraform.Output(t, ctx.TerratestTerraformOptions(), "fargate_arn")
+	policyArn := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "autoscaling_policy_arn")
+	serviceId := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "service_id")
+	fargateArn := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "fargate_arn")
 	fargateName := strings.Split(fargateArn, "/")[1]
 
 	resourceId := "service/" + fargateName + "/" + serviceId
